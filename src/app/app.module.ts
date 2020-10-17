@@ -101,9 +101,7 @@ import {OverlayModule} from '@angular/cdk/overlay';
     MatTooltipModule,
     MatTreeModule,
     OverlayModule,
-    HttpClientModule
-
-    
+    HttpClientModule 
   ],
   providers: [MyformserveService],
   bootstrap: [AppComponent]
