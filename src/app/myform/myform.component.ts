@@ -34,10 +34,11 @@ import { NgForm } from '@angular/forms';
 
 export class MyformComponent implements OnInit {
   public students: Student;
+  errorMsg: String;
   myForm: FormGroup;
   message: string;
-  errmessage: boolean;
-  succmessage: boolean;
+  errmessage: boolean = false;
+  succmessage: boolean = false;
 
   constructor(private fb: FormBuilder, private _myformService: MyformserveService) { }
   ngOnInit(): void {
@@ -49,6 +50,10 @@ export class MyformComponent implements OnInit {
           email: this.students.email,
           comment: this.students.comment
         });
+      },
+      error => {
+        this.errorMsg = error;
+        alert(this.errorMsg);
       }
       );
     this.initializeForm();
@@ -60,14 +65,14 @@ export class MyformComponent implements OnInit {
     console.log('megha');
     console.log(this.students);
     this.myForm = this.fb.group({
-      name: [''],
-      email: [''],
+      name: ['',Validators.required],
+      email: ['',Validators.required],
       // feedback: this.fb.group({
       //   great: false,
       //   okay: false,
       //   Good: false
       // }),
-      feedback: ['Good'],
+      feedback: ['Good',Validators.required],
       comment: ['']
 
     });
@@ -76,9 +81,16 @@ export class MyformComponent implements OnInit {
     console.log(this.myForm.value);
     this._myformService.postStudents(this.myForm.value).subscribe(
       response => {
-        console.log('Success!', response)
+        console.log('Success!', response);
+        this.succmessage = true;
+        this.errmessage = false;
+        this.myForm.reset();
       },
-      error => console.log('Error!', error)
+      error => {
+        console.log('Error!', error);
+        this.errmessage = true;
+        this.succmessage = false;
+    }
     );
   }
 
@@ -93,7 +105,9 @@ export class MyformComponent implements OnInit {
   onChanges(): void {
     this.myForm.valueChanges.subscribe(val => {
       this.message =
-        `Hello, My name is ${val.name} and my email is ${val.email}. I would like to tell you that ${val.comment}.`;
+        `Name : ${val.name} 
+         Email : ${val.email} 
+         Comment :  ${val.comment}`;
     });
   }
 

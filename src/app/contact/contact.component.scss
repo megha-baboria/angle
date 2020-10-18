@@ -1,8 +1,6 @@
 
 .bg {
-  /* The image used */
   background-image: linear-gradient(rgba(241, 131, 223, 0.7),rgba(233, 18, 197, 0.5)),url("../../assets/images/myback1.jpg");
-  /* Full height */
   height: 100vh;
   background-size: 100vh;
   width: 100%;
@@ -16,10 +14,10 @@
 
 .detail {
   justify-content: center; 
-  height:70vh;
+  height:90vh;
   background-color: rgb(247, 246, 242,0.7);
   // margin : 0 auto ;
-  width: 70%;
+  width: 50%;
   margin:auto;
   position:absolute;
   top:0;bottom:0;
@@ -45,14 +43,14 @@
     img{
       margin-top: 5pt;
       margin-left: 5pt;
-      width: 195px;
+      width: 85px;
       
     }
   } 
 }
 .profile{
   border-radius: 100%;
-  width: 280px;
-  height: 280px;
+  width: 130px;
+  height: 130px;
   background-color: rgb(236, 34, 186);
 }
