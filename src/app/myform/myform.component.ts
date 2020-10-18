@@ -52,10 +52,10 @@ export class MyformComponent implements OnInit {
           feedback: this.students.feedback
         });
       },
-      error => {
-        this.errorMsg = error;
-        alert(this.errorMsg);
-      }
+        error => {
+          this.errorMsg = error;
+          alert(this.errorMsg);
+        }
       );
     this.initializeForm();
     this.onChanges();
@@ -64,14 +64,14 @@ export class MyformComponent implements OnInit {
   }
   initializeForm(): void {
     this.myForm = this.fb.group({
-      name: ['',Validators.required],
-      email: ['',Validators.required],
+      name: ['', Validators.required],
+      email: ['', Validators.required],
       // feedback: this.fb.group({
       //   great: false,
       //   okay: false,
       //   Good: false
       // }),
-      feedback: ['',Validators.required],
+      feedback: ['', Validators.required],
       comment: ['']
     });
   }
@@ -83,12 +83,18 @@ export class MyformComponent implements OnInit {
         this.succmessage = true;
         this.errmessage = false;
         this.myForm.reset();
+        this.myForm.patchValue({
+          name: '',
+          email: '',
+          comment: '',
+          feedback: ''
+        });
       },
       error => {
         console.log('Error!', error);
         this.errmessage = true;
         this.succmessage = false;
-    }
+      }
     );
   }
 

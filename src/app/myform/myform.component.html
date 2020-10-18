@@ -9,10 +9,6 @@
             style="color:rgb(80, 71, 71);font-family: 'Fredoka One', cursive;">
         </mat-form-field>
       </div>
-      <!-- <div
-        *ngIf="myForm.get('name').invalid && (myForm.get('name').dirty || myForm.get('name').touched)"
-        class="alert alert-danger">
-      </div> -->
       <div>
         <mat-form-field appearance="outline"
           style="width:95%; margin-left:2pt;margin-right: 2pt; font-family: 'Fredoka One', cursive;">
@@ -22,13 +18,12 @@
         </mat-form-field>
       </div>
 
-      <div style="font-family: 'Fredoka One', cursive; background-color: rgba(28, 79, 121, 0.7);color:mintcream;margin:auto;width:70%;margin-bottom:15pt;border-radius:5px;">
+      <div class="feed">
         <h5>Feedback*</h5>
         <input type="radio" value='Okay' formControlName="feedback" ><span style="margin-left:3pt;margin-right: 10pt ;">Okay</span>
         <input type="radio" value='Great' formControlName="feedback" ><span style="margin-left:3pt;margin-right: 10pt ;">Great</span>
         <input type="radio" value='Not Good' formControlName="feedback" ><span style="margin-left:3pt;margin-right: 10pt ;">Not Good</span>
       </div>
-
       <div>
         <mat-form-field appearance="outline"
           style="width:95%; margin-left:2pt;margin-right: 2pt; font-family: 'Fredoka One', cursive;">
@@ -37,24 +32,16 @@
             style="color:rgb(80, 71, 71); font-family: 'Fredoka One', cursive;"></textarea>
         </mat-form-field>
       </div>
-      <!-- <div>
-        <mat-form-field appearance="outline"
-          style="width:95%; margin-left:2pt;margin-right: 2pt; font-family: 'Fredoka One', cursive;">
-          <mat-label>Feedback*</mat-label>
-          <textarea matInput formControlName="feedback"
-            style="color:rgb(80, 71, 71); font-family: 'Fredoka One', cursive;"></textarea>
-        </mat-form-field>
-      </div> -->
-      <button mat-raised-button color="primary" type="submit" [disabled]="!myForm.valid"  class="button btn btn-outline-primary">Submit</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!myForm.valid"  class="button">Submit</button>
     </form>
     <div *ngIf="succmessage"
-      style="background-color:rgb(30, 145, 65,0.7);border:2px solid rgb(40, 105, 45);width: 95%;margin:auto;border-radius:3px;font-family: 'Fredoka One', cursive; color:mintcream">
+       class="messages1">
       Post Request Successful</div>
     <div *ngIf="errmessage"
-      style="background-color:rgba(235, 8, 8, 0.6);border:2px solid rgba(235, 8, 8);width: 95%;margin:auto;border-radius:3px;font-family: 'Fredoka One', cursive; color:mintcream">
+      class="messages2">
       Post Request Unsuccessful</div>
     <div
-      style="background-color: rgba(28, 79, 121, 0.7);font-family: 'Fredoka One', cursive; color:mintcream;white-space: pre-line; margin:auto; border-radius:3px; width:80% ; margin-top: 20pt;">
+      class="show">
       {{ message }}
     </div>
   </div>

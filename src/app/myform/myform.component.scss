@@ -1,5 +1,52 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
+@mixin mymessage {
+  width: 95%;
+  border-radius:3px;
+}
+
+@mixin mymessage1{
+  font-family: 'Fredoka One', cursive; 
+  color:mintcream;
+  margin:auto;
+}
+
+html, body {min-height: 100%;}
+
+
+.messages1{
+  @include mymessage();
+  @include mymessage1();
+  background-color:rgb(30, 145, 65,0.7);
+  border:2px solid rgb(40, 105, 45);
+  
+}
+
+.messages2{
+  @include mymessage();
+  @include mymessage1();
+  background-color:rgba(235, 8, 8, 0.6);
+  border:2px solid rgba(235, 8, 8);
+}
+
+.show{
+  @include mymessage1();
+  white-space: pre-line; 
+  border-radius:3px; 
+  width:80% ; 
+  margin-top: 20pt;
+  background-color: rgba(28, 79, 121, 0.7);
+}
+
+.feed{
+  @include mymessage1();
+  width:70%;
+  margin-bottom:15pt;
+  border-radius:5px;
+  background-color: rgba(28, 79, 121, 0.7);
+}
+
+
 .bg {
     /* The image used */
     background-image:linear-gradient(rgba(20, 140, 238, 0.7),rgba(12, 70, 124, 0.5)),url("../../assets/images/myback2.jpg");
@@ -51,4 +98,4 @@
   text-align: center;
   
 }
-  
+
