@@ -48,7 +48,8 @@ export class MyformComponent implements OnInit {
         this.myForm.patchValue({
           name: this.students.name,
           email: this.students.email,
-          comment: this.students.comment
+          comment: this.students.comment,
+          feedback: this.students.feedback
         });
       },
       error => {
@@ -62,8 +63,6 @@ export class MyformComponent implements OnInit {
 
   }
   initializeForm(): void {
-    console.log('megha');
-    console.log(this.students);
     this.myForm = this.fb.group({
       name: ['',Validators.required],
       email: ['',Validators.required],
@@ -72,9 +71,8 @@ export class MyformComponent implements OnInit {
       //   okay: false,
       //   Good: false
       // }),
-      feedback: ['Good',Validators.required],
+      feedback: ['',Validators.required],
       comment: ['']
-
     });
   }
   onSubmit() {
@@ -107,7 +105,8 @@ export class MyformComponent implements OnInit {
       this.message =
         `Name : ${val.name} 
          Email : ${val.email} 
-         Comment :  ${val.comment}`;
+         Comment :  ${val.comment}
+         Feedback : ${val.feedback}`;
     });
   }
 
